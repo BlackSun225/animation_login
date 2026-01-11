@@ -1,0 +1,366 @@
+:root {
+  --black: rgb(0, 0, 0);
+  --softblack: rgba(0, 0, 0, 0.7);
+  --blackTwo: #272727;
+  --blackThree: #1f1f1f;
+  --blackFour: #141414;
+  --mainRed: #ce0033;
+  --placeholderGray: #9D9D9C;
+  --mainGray: #f6f6fa;
+  --fontGray: #F2F2F2;
+  --focusGray: #E8E8E8; 
+  --softGray: #F5F5F5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+#comain {
+  width: 100vw;
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+form input {
+  font-size: 0.85rem;
+  background: var(--mainGray);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: var(--blackTwo);
+  font-weight: 700;
+}
+form input:focus {
+  background: var(--focusGray);
+}
+
+input::placeholder {
+  font-size: 0.85rem;
+  color: var(--placeholderGray);
+}
+input::-moz-placeholder {
+  font-size: 0.85rem;
+  color: var(--placeholderGray);
+}
+input::-webkit-input-placeholder {
+  font-size: 0.85rem;
+  color: var(--placeholderGray);
+}
+.customCheckbox {
+  display: inline-block;
+  position: relative;
+}
+input[type=checkbox], .checkmark {
+  width: 15px;
+  height: 15px;
+}
+input[type=checkbox] {
+  opacity: 0;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.checkmark {
+  border: 2px solid var(--mainRed);
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  margin: 4px 0.5em 0 0;
+}
+.checkmark::after {
+  content: "";
+  display: none;
+  width: 3px;
+  height: 7px;
+  border: solid var(--mainRed);
+  border-width: 0 2px 2px 0;
+  position: absolute;
+  left: 3px;
+  top: 0;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .checkmark::after {
+  display: block;
+  margin: 0;
+}
+
+.btn {
+  background: var(--mainRed);
+  padding: 0.5rem 1.3rem;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.btn:hover {
+  background: var(--black);
+  color: white;
+}
+
+form textarea, form select {
+  margin-bottom: 0.5em;
+}
+form select, form textarea {
+  background: var(--mainGray);
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+form textarea {
+  height: 100px;
+}
+
+@keyframes imgin {
+  0% {opacity: 1;display: block;}
+  75% {opacity: 0.4;}
+  100% {display: none;}
+}
+@keyframes imgout {
+  0% {opacity: 0; display: none;}
+  75% {opacity: 0.7; display: block;}
+  100% {display: block;}
+}
+#comain > img {
+  display: block; 
+  width: 2em;
+  position: absolute;
+  left: 8%;
+  top: 2em;
+  animation-duration: 1.5s;
+}
+#comain img.reg {
+  z-index: 5;
+}
+#comain img.co {
+  z-index: 6;
+}
+#comain h1 {
+  font-weight: 900;
+  font-size: 2.7em;
+  line-height: 1.3em;
+}
+#comain > div p {
+  margin-bottom: 1.5em;
+}
+#comain a {
+  color: var(--black);
+  font-weight: 700;
+  font-size: 0.9em;
+  text-decoration: underline;
+  margin-top: 0.8em;
+}
+#comain .btn {
+  margin-top: 1.5em;
+}
+@keyframes movecopyrightleft {
+  0% {left: 61%;}
+  100% {left: 8%;}
+}
+@keyframes movecopyrightright {
+  0% {left: 8%;}
+  100% {left: 61%;}
+}
+#comain #copyright {
+  position: absolute;
+  bottom: 1em;
+  z-index: 5;
+  color: black;
+  font-weight: 700;
+  animation-duration: 1.5s;
+}
+#comain #copyright strong {
+  font-weight: 900;
+}
+@keyframes disappear {
+  0% {opacity: 1;}
+  50%{opacity: 0.5;}
+  70% {opacity: 0.3;}
+  100%{opacity: 1;}
+}
+#co, #reg {
+  height: 100%;
+  background: white;
+  animation-duration: 1.5s;
+}
+#co, #comain form, #reg {
+  display: flex;
+  flex-direction: column;
+}
+#comain form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#co {
+  width: 45%;
+  padding: 0 6%;
+  justify-content: center;
+}
+#comain form {
+  width: 100%;
+  align-items: flex-start;
+}
+#comain form input, #comain form select {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+#reg {
+  width: 55%;
+  justify-content: center;
+  padding: 0 8%;
+}
+#reg h1 {
+  margin-bottom: 0.3em;
+}
+.reg {
+  display: none;
+}
+#co button:hover, #reg button:hover {
+  background: var(--black);
+  color: white;
+}
+@keyframes slideright {
+  0% {left: 0; background: var(--mainRed); background-position: left bottom; opacity: 1; width: 47.5%;}
+  40% {background-color: #ce0034c0;}
+  100% {left: 55%; background: var(--black); background-position: right bottom; opacity: 1; width: 45%;}
+}
+@keyframes slideleft {
+  0% {left: 55%; background: var(--black); background-position: right bottom; opacity: 1; width: 45%;}
+  40% {background-color: #ce0034c0;}
+  100% {left: 0; background: var(--mainRed); background-position: left bottom; opacity: 1; width: 47.5%}
+}
+#slide {
+  width: 47.5%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background: var(--mainRed) url("image/pictogram.png") no-repeat;
+  background-size: 65%;
+  background-position: left bottom;
+  color: white;
+  padding: 0 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation-duration: 1.5s;
+  border: 1px solid transparent;
+}
+#slide h1 {
+  width: 80%;
+  margin-bottom: 0.4em;
+}
+#slide p {
+  font-weight: 500;
+}
+#slide .msg {
+  margin-bottom: 3em;
+}
+#slide .btn {
+  width: 32%;
+  min-width: 150px;
+  text-align: center;
+}
+#slide .btn:hover {
+  background: white;
+  color: var(--mainRed);
+  font-weight: 800;
+}
+#slide > span.co {
+  background: var(--black);
+}
+#slide > span.reg {
+  background: var(--mainRed);
+}
+
+
+@media screen and (min-width:1200px) {
+    #comain {
+        height: 100vh;
+        max-height: 1024px;
+    }
+    #comain #copyright {
+        left: 61%;
+    }
+    .mob {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    #comain {
+        height: 100vh;
+        max-height: 1024px;
+    }
+    #comain #copyright {
+        left: 61%;
+        max-width: 275px;
+    }
+    .mob {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    #comain {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+    }
+    #comain h1 {
+        width: 100%;
+        line-height: 1.1em;
+    }
+    #co, #reg {
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        position: relative;
+        padding: 0 1.5em;
+    }
+    #slide {
+        display: none;
+    }
+    #comain #copyright {
+    display: none;
+
+    }
+    span.mob {
+        margin-top: 1em;
+        cursor: pointer;
+        color: white;
+        background: var(--black);
+        padding: 0.5em 1em;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: 400;
+    }
+    span.mob:hover {
+        transform: scale(90%);
+    }
+    #reg, #comain img {
+        display: none;
+    }
+}

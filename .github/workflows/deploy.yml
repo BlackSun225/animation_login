@@ -1,8 +1,26 @@
-- uses: appleboy/ssh-action@v1.0.3
-  with:
-    host: ${{ secrets.VPS_HOST }}
-    username: ${{ secrets.VPS_USER }}
-    key: ${{ secrets.VPS_SSH_KEY }}
-    script: |
-      ls
-      whoami
+name: Deploy Static Frontend   # top-level mapping
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:                      # job name
+    runs-on: ubuntu-latest     # environment for the job
+
+    steps:                      # list of steps
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy files to VPS
+        uses: appleboy/ssh-action@v1.0.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "./*"                # all files in repo root
+          target: "/var/www/static-site"  # VPS path
+          script: |
+            ls
+            whoami

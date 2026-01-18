@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "./*"                # all files in repo root
-          target: "/var/www/static-site"  # VPS path
+          target: "/var/www/animation_login"  # VPS path of the application
           script: |
             ls
             whoami
